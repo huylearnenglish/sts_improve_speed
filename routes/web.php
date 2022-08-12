@@ -17,6 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/cached', function () {
+Route::middleware('cache.headers:public;max_age=2592000;etag')->get('/cached', function () {
     return view('cached');
 });
